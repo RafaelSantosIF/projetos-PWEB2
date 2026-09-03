@@ -1,0 +1,159 @@
+.profile {
+  position: relative;
+  width: min(100%, 560px);
+  overflow: hidden;
+  padding: 0 2rem 2rem;
+  border: 1px solid #d9e2e7;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #34434d;
+  box-shadow: 0 18px 45px rgba(31, 55, 67, 0.14);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.profile::before {
+  content: '';
+  display: block;
+  height: 112px;
+  margin: 0 -2rem 0;
+  background: linear-gradient(120deg, #0d6b78, #43b6a5);
+}
+
+.profile-name {
+  margin: 1.35rem 0 0.2rem 160px;
+  color: #18323b;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  display: block;
+}
+
+.profile-username,
+.profile-bio,
+.profile-location {
+  margin-left: 160px;
+}
+
+.profile-username {
+  margin-top: 0;
+  margin-bottom: 0.55rem;
+  color: #0d6b78;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+#profile-pic {
+  position: absolute;
+  top: 48px;
+  left: 2rem;
+  display: block;
+  width: 128px;
+  height: 128px;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 5px 16px rgba(24, 50, 59, 0.2);
+}
+
+.profile-bio {
+  margin-bottom: 0.65rem;
+  color: #687982;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.profile-location {
+  margin-bottom: 1.5rem;
+  color: #71818a;
+  font-size: 0.85rem;
+}
+
+.profile-followers,
+.profile-following {
+  clear: both;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 116px;
+  margin-right: 0.75rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e1e9ec;
+  border-radius: 10px;
+  color: #71818a;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+#followers,
+#following {
+  margin-top: 0.15rem;
+  color: #18323b;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+#follow-button {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: 10px;
+  background: #0d6b78;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+#follow-button:hover {
+  background: #09545e;
+  transform: translateY(-1px);
+}
+
+#follow-button:focus-visible {
+  outline: 3px solid #86d8c9;
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .profile {
+    padding: 0 1.25rem 1.5rem;
+  }
+
+  .profile::before {
+    margin-inline: -1.25rem;
+  }
+
+  #profile-pic {
+    position: static;
+    width: 104px;
+    height: 104px;
+    margin: -52px 0 1rem;
+  }
+
+  .profile-name,
+  .profile-username,
+  .profile-bio,
+  .profile-location {
+    margin-left: 0;
+  }
+
+  .profile-name {
+    margin-top: 0;
+  }
+
+  .profile-followers,
+  .profile-following {
+    min-width: calc(50% - 0.5rem);
+    margin-right: 0.5rem;
+  }
+
+  .profile-following {
+    margin-right: 0;
+  }
+}
