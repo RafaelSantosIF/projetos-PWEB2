@@ -1,5 +1,7 @@
 import profilePic from './profile-pic.jpg';
 import loc from '../../assets/loc.png';
+import message from '../../assets/message.png';
+import messageHover from '../../assets/message_hover.png';
 import './perfil.css';
 
 let followersCount = 532;
@@ -24,12 +26,19 @@ export function profile() {
       <span class="profile-followers">Seguidores: <span id="followers">${followersCount}</span></span>
       <span class="profile-following">Seguindo: <span id="following">${followingCount}</span></span>
     </div>
-    <button id="follow-button" type="button">Seguir</button>
+    <div class="profile-actions">
+      <button id="follow-button" type="button">Seguir</button>
+      <button id="message-button" type="button" aria-label="Enviar mensagem">
+        <img src="${message}" alt="" id="message-icon" />
+      </button>
+    </div>
     
   `;
 
   const followButton = profileElement.querySelector('#follow-button');
   const followersElement = profileElement.querySelector('#followers');
+  const messageButton = profileElement.querySelector('#message-button');
+  const messageIcon = profileElement.querySelector('#message-icon');
 
   followButton.addEventListener('click', () => {
     followersCount += 1;
@@ -37,6 +46,22 @@ export function profile() {
     followButton.textContent = 'Seguindo';
     followButton.classList.add('is-following');
     followButton.disabled = true;
+  });
+
+  messageButton.addEventListener('mouseenter', () => {
+    messageIcon.src = messageHover;
+  });
+
+  messageButton.addEventListener('mouseleave', () => {
+    messageIcon.src = message;
+  });
+
+  messageButton.addEventListener('focus', () => {
+    messageIcon.src = messageHover;
+  });
+
+  messageButton.addEventListener('blur', () => {
+    messageIcon.src = message;
   });
 
   return profileElement;

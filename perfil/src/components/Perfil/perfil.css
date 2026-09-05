@@ -112,10 +112,16 @@
   font-weight: 700;
 }
 
+.profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
 #follow-button {
   display: block;
-  width: 100%;
-  margin-top: 1.5rem;
+  flex: 1;
   padding: 0.75rem 1rem;
   border: 0;
   border-radius: 10px;
@@ -152,6 +158,35 @@
 #follow-button:active {
   background: #0d6b78;
   transform: translateY(0);
+}
+
+#message-button {
+  display: grid;
+  flex: 0 0 3rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#message-button:hover {
+  transform: translateY(-1px);
+}
+
+#message-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+
+#message-button:focus-visible {
+  outline: 3px solid #86d8c9;
+  outline-offset: 3px;
 }
 
 @media (max-width: 560px) {
@@ -192,5 +227,9 @@
   .profile-followers,
   .profile-following {
     min-width: calc(50% - 0.5rem);
+  }
+
+  .profile-actions {
+    gap: 0.5rem;
   }
 }
