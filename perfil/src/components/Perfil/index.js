@@ -20,8 +20,20 @@ export function profile() {
     <img src="${profilePic}" alt="Profile Picture" id="profile-pic" />
     <span class="profile-followers">Seguidores: <span id="followers">${followersCount}</span></span>
     <span class="profile-following">Seguindo: <span id="following">${followingCount}</span></span>
-    <button id="follow-button">Seguir</button>
+    <button id="follow-button" type="button">Seguir</button>
     
   `;
+
+  const followButton = profileElement.querySelector('#follow-button');
+  const followersElement = profileElement.querySelector('#followers');
+
+  followButton.addEventListener('click', () => {
+    followersCount += 1;
+    followersElement.textContent = followersCount;
+    followButton.textContent = 'Seguindo';
+    followButton.classList.add('is-following');
+    followButton.disabled = true;
+  });
+
   return profileElement;
 }

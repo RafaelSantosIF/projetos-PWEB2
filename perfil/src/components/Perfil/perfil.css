@@ -115,9 +115,26 @@
   transform: translateY(-1px);
 }
 
+#follow-button.is-following,
+#follow-button.is-following:hover,
+#follow-button.is-following:active {
+  background: #18323b;
+  cursor: default;
+  transform: none;
+}
+
+#follow-button:disabled {
+  opacity: 1;
+}
+
 #follow-button:focus-visible {
   outline: 3px solid #86d8c9;
   outline-offset: 3px;
+}
+
+#follow-button:active {
+  background: #0d6b78;
+  transform: translateY(0);
 }
 
 @media (max-width: 560px) {
