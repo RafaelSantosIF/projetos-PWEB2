@@ -1,4 +1,5 @@
 import profilePic from './profile-pic.jpg';
+import loc from '../../assets/loc.png';
 import './perfil.css';
 
 let followersCount = 532;
@@ -16,10 +17,13 @@ export function profile() {
     <h2 class="profile-name">Professora Lilie</h2>
     <h3 class="profile-username">@lilie.edu</h3>
     <p class="profile-bio">Apaixonada por literatura e educação. Compartilhando conhecimento e inspiração.</p>
-    <p class="profile-location">Localização: Xique-Xique, Bahia</p>
+    <img src="${loc}" alt="Location Icon" class="profile-location-icon" />
+    <p class="profile-location">Xique-Xique, Bahia</p>
     <img src="${profilePic}" alt="Profile Picture" id="profile-pic" />
-    <span class="profile-followers">Seguidores: <span id="followers">${followersCount}</span></span>
-    <span class="profile-following">Seguindo: <span id="following">${followingCount}</span></span>
+    <div class="profile-stats">
+      <span class="profile-followers">Seguidores: <span id="followers">${followersCount}</span></span>
+      <span class="profile-following">Seguindo: <span id="following">${followingCount}</span></span>
+    </div>
     <button id="follow-button" type="button">Seguir</button>
     
   `;
