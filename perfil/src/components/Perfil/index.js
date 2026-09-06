@@ -1,5 +1,6 @@
 import profilePic from './profile-pic.jpg';
 import pet from './pet.png';
+import coruja from './coruja.mp3';
 import loc from '../../assets/loc.png';
 import message from '../../assets/message.png';
 import messageHover from '../../assets/message_hover.png';
@@ -77,6 +78,7 @@ export function profile() {
   const likeButton = profileElement.querySelector('#like-button');
   const likesElement = profileElement.querySelector('#likes');
   const likeIcon = profileElement.querySelector('#like-icon');
+  const piu = new Audio(coruja); 
 
   followButton.addEventListener('click', () => {    
     if (!isFollowing) {
@@ -100,6 +102,7 @@ export function profile() {
       likesCount += 1;
       likesElement.textContent = likesCount;
       likeIcon.src = liked;
+      piu.play();
     } else {
       isLiked = false;
       likesCount -= 1;
