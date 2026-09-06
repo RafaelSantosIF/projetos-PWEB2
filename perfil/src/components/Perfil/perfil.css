@@ -1,4 +1,4 @@
-.profile {
+.profile {  
   position: relative;
   width: min(100%, 560px);
   overflow: hidden;
@@ -29,15 +29,19 @@
   display: block;
 }
 
-.profile-username,
-.profile-bio,
-.profile-location {
+.profile-meta,
+.profile-bio-container {
   margin-left: 160px;
 }
 
+.profile-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .profile-username {
-  margin-top: 0;
-  margin-bottom: 0.55rem;
+  margin: 0;
   color: #0d6b78;
   font-size: 0.95rem;
   font-weight: 600;
@@ -56,30 +60,110 @@
   box-shadow: 0 5px 16px rgba(24, 50, 59, 0.2);
 }
 
-.profile-bio {
+.profile-pet {
+  position: absolute;
+  top: 196px;
+  left: 2rem;
+  display: flex;
+  width: 128px;
+  height: 200px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#pet-icon {
+  display: block;
+  width: min(128px, 100%);
+  max-height: 116px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+.pet-name {
+  margin: 0.35rem 0 0.45rem;
+  color: #18323b;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+#like-button {
+  display: grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+#like-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+
+.likes-count {
+  color: #71818a;
+  font-size: 1.25rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.pet-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+#like-button:hover {
+  transform: scale(1.08);
+}
+
+#like-button:focus-visible {
+  outline: 3px solid #86d8c9;
+  outline-offset: 2px;
+}
+
+.profile-bio-container {
+  display: flex;
+  height: 90px;
+  min-width: 0;
   margin-bottom: 0.65rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.profile-bio {
+  min-width: 0;
+  margin: 0;
   color: #687982;
   font-size: 0.95rem;
   line-height: 1.45;
 }
 
 .profile-location {
-  display: inline;
-  margin: 0 0 1.5rem 0.5rem;
+  margin: 0;
   color: #71818a;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.profile-location-row {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .profile-location-icon {
+  flex: 0 0 1rem;
   width: 1rem;
   height: 1rem;
-  margin-left: 10rem;
-  vertical-align: middle;
   object-fit: contain;
-}
-
-.profile-location-icon + .profile-location {
-  margin-left: 0.5rem;
 }
 
 .profile-stats {
@@ -93,7 +177,7 @@
   display: inline-flex;
   flex-direction: column;
   min-width: 116px;
-  padding: 0.8rem 1rem;
+  padding: 0.6rem 0.8rem;
   border: 1px solid #e1e9ec;
   border-radius: 10px;
   color: #71818a;
@@ -116,7 +200,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 1.5rem;
+  margin-top: 0.75rem;
 }
 
 #follow-button {
@@ -189,6 +273,72 @@
   outline-offset: 3px;
 }
 
+#back-button {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.35rem;
+  z-index: 1;
+  display: grid;
+  flex: 0 0 3rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#back-button:hover {
+  transform: translateY(-1px);
+}
+
+#back-icon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+#back-button:focus-visible {
+  outline: 3px solid #86d8c9;
+  outline-offset: 3px;
+}
+
+#menu-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.35rem;
+  z-index: 1;
+  display: grid;
+  flex: 0 0 3rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#menu-button:hover {
+  transform: translateY(-1px);
+}
+
+#menu-icon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+#menu-button:focus-visible {
+  outline: 3px solid #86d8c9;
+  outline-offset: 3px;
+}
+
 @media (max-width: 560px) {
   .profile {
     padding: 0 1.25rem 1.5rem;
@@ -205,18 +355,29 @@
     margin: -52px 0 1rem;
   }
 
+  .profile-pet {
+    position: static;
+    width: min(128px, 100%);
+    margin: -0.25rem auto 1rem;
+  }
+
+  #pet-icon {
+    max-height: 116px;
+  }
+
   .profile-name,
-  .profile-username,
-  .profile-bio,
-  .profile-location {
+  .profile-meta,
+  .profile-bio-container {
     margin-left: 0;
+  }
+
+  .profile-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
   }
 
   .profile-stats {
-    margin-left: 0;
-  }
-
-  .profile-location-icon {
     margin-left: 0;
   }
 
