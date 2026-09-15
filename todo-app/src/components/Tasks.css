@@ -1,0 +1,12 @@
+.container_bar {
+    width: 100%;
+    flex-direction: row;
+}
+
+#add_button {
+    margin-left: auto;
+}
+
+#task_name {
+    font-family: 'poppins';
+}
